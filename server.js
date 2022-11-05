@@ -1,13 +1,26 @@
 const express = require('express');
 const app = express()
-// const mongoose = require('mongoose');
 // const passport = require('passport');
 // const session = require('express-session');
-// const connectDB = require('./config/database')
+const connectMongoDB = require('./config/database');
+const logger = require('morgan')
+const flash = require('express-flash')
+// morgan logs HTTP requests in console for more information 
 const PORT = process.env.PORT || 5000
+const mainRoutes = require('./routes/mainRoutes')
 
 
 require('dotenv').config({ path: './config/.env' });
+
+connectMongoDB();
+
+// middleware 
+app.use(express.json()); // NEED for PUT/POST requests 
+app.use(express.urlencoded({ extended: true }))
+app.use(logger('dev'))
+
+app.use('/', mainRoutes);
+// app.use('/posts', postRoutes);
 
 app.listen(process.env.PORT, () => {
     console.log(`Server is running on port ${PORT}`)
