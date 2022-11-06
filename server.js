@@ -4,10 +4,11 @@ const app = express()
 // const session = require('express-session');
 const connectMongoDB = require('./config/database');
 const logger = require('morgan')
-const flash = require('express-flash')
+// const flash = require('express-flash')
 // morgan logs HTTP requests in console for more information 
 const PORT = process.env.PORT || 5000
 const mainRoutes = require('./routes/mainRoutes')
+const postRoutes = require('./routes/postRoutes')
 
 
 require('dotenv').config({ path: './config/.env' });
@@ -20,7 +21,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(logger('dev'))
 
 app.use('/', mainRoutes);
-// app.use('/posts', postRoutes);
+app.use('/posts', postRoutes);
 
 app.listen(process.env.PORT, () => {
     console.log(`Server is running on port ${PORT}`)
