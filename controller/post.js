@@ -26,8 +26,8 @@ module.exports = {
         try {
             console.log(req.body);
             await Posts.create({ location: req.body.location, urlOfImg: req.body.urlOfImg, cost: req.body.cost, resortName: req.body.resortName, review: req.body.review, comments: req.body.comments })
-            console.log('New Post has been added');
-            // res.redirect('/posts')
+            console.log('New Post has been added')
+            res.json({ response: "ok" });
         } catch (err) {
             console.log(err)
         }
