@@ -7,9 +7,9 @@ router.get('/', /* ensureAuth, */ postController.getPosts);
 
 router.post('/createPost', postController.createPost);
 
-// router.put('/editPost', postController.editPost);
+router.put('/updatePost/:id', postController.updatePost);
 
-// router.delete('/deletePost', postController.deletePost);
+router.delete('/deletePost/:id', postController.deletePost);
 
 module.exports = router
 

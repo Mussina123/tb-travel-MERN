@@ -2,34 +2,59 @@ const Posts = require('../models/Posts');
 
 module.exports = {
     getPosts: async (req, res) => {
-        console.log(req.user);
         try {
             const allPosts = await Posts.find();
-            res.json(allPosts);
+            res.status(200).json(allPosts);
         } catch (err) {
             console.log(err)
         }
-        // },
-        // createPost: async (req, res) => {
-        //     try {
-        //         const parsedBody = JSON.parse(req.body);
-        //         console.log(req.body);
-        //         await Posts.create({ location: parsedBody.location, urlOfImg: parsedBody.urlOfImg, cost: parsedBody.cost, resortName: parsedBody.resortName, review: parsedBody.review, comments: parsedBody.comments })
-        //         console.log('New Post has been added');
-        //         // res.redirect('/posts')
-        //     } catch (err) {
-        //         console.log(err)
-        //     }
-        // }
     },
     createPost: async (req, res) => {
         try {
+
+            if (!req.body) {
+                res.status(400)
+                throw new Error("Please fill in all areas")
+            }
+
             console.log(req.body);
-            await Posts.create({ location: req.body.location, urlOfImg: req.body.urlOfImg, cost: req.body.cost, resortName: req.body.resortName, review: req.body.review, comments: req.body.comments })
+            const createdPost = await Posts.create({ location: req.body.location, urlOfImg: req.body.urlOfImg, cost: req.body.cost, resortName: req.body.resortName, review: req.body.review, comments: req.body.comments })
             console.log('New Post has been added')
-            res.json({ response: "ok" });
+            res.status(200).json(createdPost);
         } catch (err) {
             console.log(err)
         }
+    },
+    deletePost: async (req, res) => {
+        try {
+            const post = await Posts.findById(req.params.id)
+
+            if (!post) {
+                res.status(400)
+                throw new Error('Post not found')
+            }
+
+            await post.remove()
+
+            res.status(200).json({ message: `Deleted post: ${req.params.id}` })
+
+        } catch (err) {
+            console.log(err)
+            res.status(400)
+            throw new Error("Wrong post")
+        }
+    },
+    updatePost: async (req, res) => {
+        const post = await Posts.findById(req.params.id)
+
+        if (!post) {
+            res.status(400)
+            throw new Error("Post not found")
+        }
+
+        const updatedPost = await Posts.findByIdAndUpdate(req.params.id, req.body, { new: false })
+        console.log(req.body);
+
+        res.status(200).json(updatedPost)
     }
 }
