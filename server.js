@@ -9,6 +9,7 @@ const logger = require('morgan')
 const PORT = process.env.PORT || 5000
 const mainRoutes = require('./routes/mainRoutes')
 const postRoutes = require('./routes/postRoutes')
+const { errorHandler } = require('./middleware/errorMiddleware')
 
 
 require('dotenv').config({ path: './config/.env' });
@@ -22,6 +23,8 @@ app.use(logger('dev'))
 
 app.use('/', mainRoutes);
 app.use('/posts', postRoutes);
+
+app.use(errorHandler)
 
 app.listen(process.env.PORT, () => {
     console.log(`Server is running on port ${PORT}`)

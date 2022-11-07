@@ -11,7 +11,6 @@ module.exports = {
     },
     createPost: async (req, res) => {
         try {
-
             if (!req.body) {
                 res.status(400)
                 throw new Error("Please fill in all areas")
@@ -36,12 +35,12 @@ module.exports = {
 
             await post.remove()
 
-            res.status(200).json({ message: `Deleted post: ${req.params.id}` })
+            res.status(200).json({ message: `Post id: ${req.params.id}` })
 
         } catch (err) {
             console.log(err)
             res.status(400)
-            throw new Error("Wrong post")
+            throw new Error("Could not delete your post...")
         }
     },
     updatePost: async (req, res) => {
