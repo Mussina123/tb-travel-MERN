@@ -7,7 +7,7 @@ const logger = require('morgan')
 // const flash = require('express-flash')
 // morgan logs HTTP requests in console for more information 
 const PORT = process.env.PORT || 5000
-const mainRoutes = require('./routes/mainRoutes')
+const userRoutes = require('./routes/userRoutes')
 const postRoutes = require('./routes/postRoutes')
 const { errorHandler } = require('./middleware/errorMiddleware')
 
@@ -21,7 +21,7 @@ app.use(express.json()); // NEED for PUT/POST requests
 app.use(express.urlencoded({ extended: true }))
 app.use(logger('dev'))
 
-app.use('/', mainRoutes);
+app.use('/users', userRoutes);
 app.use('/posts', postRoutes);
 
 app.use(errorHandler)
