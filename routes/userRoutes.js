@@ -1,13 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const { registerUser, loginUser, getMyself } = require('../controller/userController')
+const { protectAuth } = require('../middleware/authMiddleware')
 // const authController = require('../controller/auth');
 // const homeController = require('../controller/home');
 // const { ensureAuth, ensureGuest } = require('../middlewear/auth');
 
 router.post('/', registerUser)
 router.post('/login', loginUser)
-router.get('/me', getMyself)
+router.get('/me', protectAuth, getMyself)
 
 
 // router.get('/', homeController.getHello)
