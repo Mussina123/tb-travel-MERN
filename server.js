@@ -3,9 +3,9 @@ const app = express()
 // const passport = require('passport');
 // const session = require('express-session');
 const connectMongoDB = require('./config/database');
+// morgan logs HTTP requests in console for more information 
 const logger = require('morgan')
 // const flash = require('express-flash')
-// morgan logs HTTP requests in console for more information 
 const PORT = process.env.PORT || 5000
 const userRoutes = require('./routes/userRoutes')
 const postRoutes = require('./routes/postRoutes')
