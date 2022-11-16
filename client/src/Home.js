@@ -6,28 +6,30 @@ import homeLogo3 from './images/homeLogo3.png'
 const Home = () => {
     return (
         <main className=' text-white'>
-            <section className='ml-20'>
-                A community of travelers who want to make memories and explore the world TOGETHER! Join our community by signing up and posting about your travel adventures! Look at other locations others have been at for inspiration... and don't forget to GoTravel!
+            <section className='mx-8'>
+                A community of travelers who want to make memories and explore the world TOGETHER! Join our community by signing up and posting about your travel adventures! Look at other locations others have been at for inspiration... and don't forget to GoTravel! Take a look at a few examples from our community! :D
             </section>
-            <section >
-                <img
-                    className='homeLogo max-h-96 ml-auto md:ml-0'
-                    src={homeLogo}
-                    alt='homepage'
-                >
-                </img>
-                <img
-                    className='homeLogo max-h-96 ml-auto md:ml-0'
-                    src={homeLogo2}
-                    alt='homepage'
-                >
-                </img>
-                <img
-                    className='homeLogo max-h-96 ml-auto md:ml-0'
-                    src={homeLogo3}
-                    alt='homepage'
-                >
-                </img>
+            <section className=''>
+                <section className='flex flex-col md:grid md:grid-cols-3 '>
+                    <img
+                        className='homeLogo'
+                        src={homeLogo}
+                        alt='homepage'
+                    >
+                    </img>
+                    <img
+                        className='homeLogo'
+                        src={homeLogo2}
+                        alt='homepage'
+                    >
+                    </img>
+                    <img
+                        className='homeLogo '
+                        src={homeLogo3}
+                        alt='homepage'
+                    >
+                    </img>
+                </section>
             </section>
         </main >
     )
