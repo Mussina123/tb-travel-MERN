@@ -1,23 +1,11 @@
 
-import './App.css';
-import Home from './Home'
-import Navbar from './Navbar';
+import Home from './components/Home'
+import Navbar from './components/Navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Signup from './Signup';
-import Login from './Login';
-import Error from './Error';
+import Signup from './components/Signup';
+import Login from './components/Login';
+import Error from './components/Error';
 
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <Navbar />
-//         <Home />
-//       </header>
-//     </div>
-//   );
-// }
 function App() {
   return (
     <BrowserRouter>

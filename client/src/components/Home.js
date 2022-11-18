@@ -1,7 +1,7 @@
 import React from 'react'
-import homeLogo from './images/homeLogo1.png'
-import homeLogo2 from './images/homeLogo2.png'
-import homeLogo3 from './images/homeLogo3.png'
+import homeLogo from '../images/homeLogo1.png'
+import homeLogo2 from '../images/homeLogo2.png'
+import homeLogo3 from '../images/homeLogo3.png'
 
 const Home = () => {
     return (

@@ -8,3 +8,12 @@ body {
     font-family: 'Inter', sans-serif;
     color: white;
 }
+
+.header ul li a {
+    display: flex;
+    align-items: center;
+  }
+
+  .header ul li a svg {
+    margin-right: .5rem;
+  }
