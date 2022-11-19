@@ -24,14 +24,14 @@ const Login = () => {
     return (
         <>
             <section className=''>
-                <main className='flex'>
-                    <FaSignInAlt /> <h1> Login</h1>
+                <main className='flex justify-center mb-4 items-center	'>
+                    <FaSignInAlt /> <h1 className='ml-2'> Login</h1>
                 </main>
                 {/* <p>Login and make some posts! </p> */}
             </section>
 
             <section>
-                <form onSubmit={onSubmit} className='text-black'>
+                <form onSubmit={onSubmit} className='text-black flex flex-col justify-center items-center'>
                     {/* this div is used to sytle inputs */}
                     <div>
                         <input

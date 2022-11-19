@@ -26,16 +26,16 @@ const Signup = () => {
     return (
         <>
             <section className=''>
-                <main className='flex'>
-                    <FaUser /> <h1> Sign Up </h1>
+                <main className='flex justify-center mb-4 items-center	'>
+                    <FaUser /> <h1 className='ml-2'> Sign Up </h1>
                 </main>
-                <p>Create an account </p>
+                <p className='flex justify-center mb-4'>Create an account </p>
             </section>
 
             <section>
-                <form onSubmit={onSubmit} className='text-black'>
+                <form onSubmit={onSubmit} className='text-black flex flex-col justify-center items-center'>
                     {/* this div is used to sytle inputs */}
-                    <div>
+                    <div className=''>
                         <input
                             type='text'
                             name='name'
@@ -75,7 +75,7 @@ const Signup = () => {
                         <button type='submit' className='rounded-full bg-[#E1F959] text-black' >Submit</button>
                     </div>
                 </form>
-            </section>
+            </section >
         </>
     )
 }
