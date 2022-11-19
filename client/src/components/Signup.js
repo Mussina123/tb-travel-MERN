@@ -13,8 +13,14 @@ const Signup = () => {
 
     const { name, email, password, password2 } = signUpData
 
-    const onChange = () => {
-
+    const onChange = (e) => {
+        setSignupData((prevState) => ({
+            ...prevState,
+            [e.target.name]: e.target.value,
+        }))
+    }
+    const onSubmit = (e) => {
+        e.preventDefault()
     }
 
     return (
@@ -27,7 +33,7 @@ const Signup = () => {
             </section>
 
             <section>
-                <form>
+                <form onSubmit={onSubmit} className='text-black'>
                     {/* this div is used to sytle inputs */}
                     <div>
                         <input
@@ -64,6 +70,9 @@ const Signup = () => {
                             value={password2}
                             placeholder="Confirm password"
                             onChange={onChange} />
+                    </div>
+                    <div>
+                        <button type='submit' className='rounded-full bg-[#E1F959] text-black' >Submit</button>
                     </div>
                 </form>
             </section>
