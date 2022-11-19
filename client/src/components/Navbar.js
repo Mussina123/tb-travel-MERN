@@ -2,7 +2,7 @@ import React from 'react'
 import mainLogo from '../images/mainLogo.png'
 // import { CiStar } from "react-icons/ci";
 import { Link } from 'react-router-dom';
-import { FaSignInAlt, FaSignOutAlt, FaUser } from 'react-icons/fa'
+import { FaSignInAlt, FaUser } from 'react-icons/fa'
 
 const Navbar = () => {
     return (
