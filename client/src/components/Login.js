@@ -27,7 +27,7 @@ const Login = () => {
         }
 
         if (isSuccess || user) {
-            navigate('/')
+            navigate('/dashboard')
             // plan to change to user dashboard in future 
 
         }

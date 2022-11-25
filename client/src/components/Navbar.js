@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FaSignInAlt, FaUser, FaSignOutAlt } from 'react-icons/fa'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout, reset } from '../features/auth/authSlice';
+import { IoLogoBuffer } from "react-icons/io5";
 
 const Navbar = () => {
 
@@ -27,6 +28,14 @@ const Navbar = () => {
             <ul className='flex items-center mr-20 justify-between	'>
                 {user ? (
                     <>
+                        <li className='mr-12 ml-4'>
+                            <Link to='dashboard'>
+                                <button className='flex items-center gap-2'>
+                                    <IoLogoBuffer />
+                                    Dashboard
+                                </button>
+                            </Link>
+                        </li>
                         <li className='mr-12 ml-2'>
                             <button onClick={onLogout} className='flex items-center gap-2'>
                                 <FaSignOutAlt />
