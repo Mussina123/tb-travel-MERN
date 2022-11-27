@@ -18,7 +18,7 @@ module.exports = {
             }
 
             console.log(req.body);
-            const createdPost = await Posts.create({ location: req.body.location, urlOfImg: req.body.urlOfImg, cost: req.body.cost, resortName: req.body.resortName, review: req.body.review, comments: req.body.comments, user: req.user.id })
+            const createdPost = await Posts.create({ location: req.body.postData.location, urlOfImg: req.body.postData.urlOfImg, cost: req.body.postData.cost, resortName: req.body.postData.resortName, review: req.body.postData.review, comments: req.body.postData.comments, user: req.user.id })
             console.log('New Post has been added')
             res.status(200).json(createdPost);
         } catch (err) {

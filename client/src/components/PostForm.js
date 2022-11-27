@@ -1,21 +1,51 @@
 import { useState } from "react"
-import { useSelector, useDispatch } from "react-redux"
+import { useDispatch } from "react-redux"
+import { createPost } from "../features/post/postSlice"
 
 
 const PostForm = () => {
-    const [location, setLocation] = useState('')
-    const [url, setUrl] = useState('')
-    const [resort, setResort] = useState('')
-    const [cost, setCost] = useState(undefined)
-    const [review, setReview] = useState(undefined)
-    const [comments, setComments] = useState('')
+    // const [location, setLocation] = useState('')
+    // const [urlOfImg, setUrlOfImg] = useState('')
+    // const [resortName, setResortName] = useState('')
+    // const [cost, setCost] = useState(undefined)
+    // const [review, setReview] = useState(undefined)
+    // const [comments, setComments] = useState('')
+
+    const [postData, setPostData] = useState({
+        location: '',
+        urlOfImg: '',
+        resortName: '',
+        cost: 0,
+        review: 0,
+        comments: ''
+    })
+
+    const dispatch = useDispatch()
+
 
     const onSubmit = (e) => {
         e.preventDefault()
+
+        dispatch(createPost(postData))
+        setPostData({
+            location: '',
+            urlOfImg: '',
+            resortName: '',
+            cost: 0,
+            review: 0,
+            comments: ''
+        })
     }
+    // setLocation('')
+    // setUrlOfImg('')
+    // setResortName('')
+    // setCost(undefined)
+    // setReview(undefined)
+    // setComments('')
+
 
     return (
-        <section>
+        <section >
             <form onSubmit={onSubmit}>
                 <div>
                     <label htmlFor="location">Location</label>
@@ -23,28 +53,28 @@ const PostForm = () => {
                         type='text'
                         name='location'
                         id='location'
-                        value={location}
-                        onChange={(e) => setLocation(e.target.value)}
+                        value={postData.location}
+                        onChange={(e) => setPostData({ ...postData, location: e.target.value })}
                     />
                 </div>
                 <div>
                     <label htmlFor="url">URL for Image</label>
                     <input
                         type='text'
-                        name='url'
-                        id='url'
-                        value={url}
-                        onChange={(e) => setUrl(e.target.value)}
+                        name='urlOfImg'
+                        id='urlOfImg'
+                        value={postData.urlOfImg}
+                        onChange={(e) => setPostData({ ...postData, urlOfImg: e.target.value })}
                     />
                 </div>
                 <div>
-                    <label htmlFor="resort">Resort Name</label>
+                    <label htmlFor="resortName">Resort Name</label>
                     <input
                         type='text'
-                        name='resort'
-                        id='resort'
-                        value={resort}
-                        onChange={(e) => setResort(e.target.value)}
+                        name='resortName'
+                        id='resortName'
+                        value={postData.resortName}
+                        onChange={(e) => setPostData({ ...postData, resortName: e.target.value })}
                     />
                 </div>
                 <div>
@@ -53,8 +83,8 @@ const PostForm = () => {
                         type='number'
                         name='cost'
                         id='cost'
-                        value={cost}
-                        onChange={(e) => setCost(e.target.value)}
+                        value={postData.cost}
+                        onChange={(e) => setPostData({ ...postData, cost: e.target.value })}
                     />
                 </div>
                 <div>
@@ -63,8 +93,8 @@ const PostForm = () => {
                         type='number'
                         name='review'
                         id='review'
-                        value={review}
-                        onChange={(e) => setReview(e.target.value)}
+                        value={postData.review}
+                        onChange={(e) => setPostData({ ...postData, review: e.target.value })}
                     />
                 </div>
                 <div>
@@ -73,8 +103,8 @@ const PostForm = () => {
                         type='text'
                         name='comments'
                         id='comments'
-                        value={comments}
-                        onChange={(e) => setComments(e.target.value)}
+                        value={postData.comments}
+                        onChange={(e) => setPostData({ ...postData, comments: e.target.value })}
                     />
                 </div>
                 <div>
