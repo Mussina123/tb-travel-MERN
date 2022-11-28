@@ -1,19 +1,40 @@
 import React from 'react'
 import { useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import PostForm from './PostForm'
+import Spinner from '../components/Spinner'
+import { reset, getPosts } from '../features/post/postSlice'
+import PostItem from './PostItem'
+
+
 
 const Dashboard = () => {
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     const { user } = useSelector((state) => state.auth)
+    const { posts, isLoading, isError, message } = useSelector((state) => state.posts)
 
     useEffect(() => {
+        if (isError) {
+            console.log(message)
+        }
+
         if (!user) {
             navigate('/login')
         }
-    }, [user, navigate])
+
+        dispatch(getPosts())
+
+        return () => {
+            dispatch(reset())
+        }
+    }, [user, navigate, isError, message, dispatch])
+
+    if (isLoading) {
+        return <Spinner />
+    }
 
     return (
         <>
@@ -24,6 +45,16 @@ const Dashboard = () => {
                 <p>Vacation Posts Dashboard</p>
             </section>
             <PostForm />
+
+            <section>
+                {posts.length > 0 ? (
+                    <div>
+                        {posts.map((post) => (
+                            <PostItem key={post._id} post={post} />
+                        ))}
+                    </div>
+                ) : (<h3> You have not created any experiences </h3>)}
+            </section>
 
         </>
     )
