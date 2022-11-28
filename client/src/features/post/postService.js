@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-const API_URL = '/posts/'
+const API_URL = 'posts/'
 
 // Create new post
 
@@ -31,10 +31,24 @@ const getPosts = async (token) => {
     return response.data
 }
 
+// Delete user post 
+
+const deletePost = async (postId, token) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+
+    const response = await axios.delete(API_URL + 'deletePost/' + postId, config)
+
+    return response.data
+}
 
 const postService = {
     createPost,
-    getPosts
+    getPosts,
+    deletePost
 }
 
 export default postService

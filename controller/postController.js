@@ -28,6 +28,7 @@ module.exports = {
     deletePost: async (req, res) => {
         try {
             const post = await Posts.findById(req.params.id)
+            // console.log(post)
 
             if (!post) {
                 res.status(400)
@@ -49,7 +50,7 @@ module.exports = {
 
             await post.remove()
 
-            res.status(200).json({ message: `Post id: ${req.params.id}` })
+            res.status(200).json({ id: req.params.id })
 
         } catch (err) {
             console.log(err)

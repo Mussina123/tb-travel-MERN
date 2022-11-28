@@ -15,8 +15,8 @@ const PostForm = () => {
         location: '',
         urlOfImg: '',
         resortName: '',
-        cost: undefined,
-        review: undefined,
+        cost: '',
+        review: '',
         comments: ''
     })
 
