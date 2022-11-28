@@ -45,11 +45,15 @@ const PostForm = () => {
 
 
     return (
-        <section >
-            <form onSubmit={onSubmit}>
-                <div>
-                    <label htmlFor="location">Location</label>
+        <section className="text-center	m-4">
+            <form onSubmit={onSubmit} >
+                <div className="mb-4">
+                    <label
+                        className="pr-4"
+                        htmlFor="location">Location
+                    </label>
                     <input
+                        className="rounded-md"
                         type='text'
                         name='location'
                         id='location'
@@ -57,9 +61,12 @@ const PostForm = () => {
                         onChange={(e) => setPostData({ ...postData, location: e.target.value })}
                     />
                 </div>
-                <div>
-                    <label htmlFor="url">URL for Image</label>
+                <div className="mb-4">
+                    <label
+                        className="mr-2"
+                        htmlFor="url">URL for Image</label>
                     <input
+                        className="rounded-md"
                         type='text'
                         name='urlOfImg'
                         id='urlOfImg'
@@ -67,9 +74,12 @@ const PostForm = () => {
                         onChange={(e) => setPostData({ ...postData, urlOfImg: e.target.value })}
                     />
                 </div>
-                <div>
-                    <label htmlFor="resortName">Resort Name</label>
+                <div className="mb-4">
+                    <label
+                        className="mr-2"
+                        htmlFor="resortName">Resort Name</label>
                     <input
+                        className="rounded-md"
                         type='text'
                         name='resortName'
                         id='resortName'
@@ -77,9 +87,12 @@ const PostForm = () => {
                         onChange={(e) => setPostData({ ...postData, resortName: e.target.value })}
                     />
                 </div>
-                <div>
-                    <label htmlFor="cost">Cost</label>
+                <div className="mb-4">
+                    <label
+                        className="mr-6"
+                        htmlFor="cost">Cost</label>
                     <input
+                        className="rounded-md pr-4"
                         type='number'
                         name='cost'
                         id='cost'
@@ -87,9 +100,12 @@ const PostForm = () => {
                         onChange={(e) => setPostData({ ...postData, cost: e.target.value })}
                     />
                 </div>
-                <div>
-                    <label htmlFor="review">Review: 0 to 5</label>
+                <div className="mb-4">
+                    <label
+                        className="mr-2"
+                        htmlFor="review">Review: 0 to 5</label>
                     <input
+                        className="rounded-md"
                         type='number'
                         name='review'
                         id='review'
@@ -97,9 +113,12 @@ const PostForm = () => {
                         onChange={(e) => setPostData({ ...postData, review: e.target.value })}
                     />
                 </div>
-                <div>
-                    <label htmlFor="comments">Comments</label>
+                <div className="mb-4">
+                    <label
+                        className="mr-2"
+                        htmlFor="comments">Comments</label>
                     <input
+                        className="rounded-md"
                         type='text'
                         name='comments'
                         id='comments'
@@ -108,7 +127,7 @@ const PostForm = () => {
                     />
                 </div>
                 <div>
-                    <button type="submit">Post Experience</button>
+                    <button type="submit" className='rounded-lg bg-[#E1F959] text-black px-4 hover:text-xl'>Post Experience</button>
                 </div>
             </form>
         </section>

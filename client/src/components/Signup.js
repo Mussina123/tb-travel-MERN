@@ -67,17 +67,18 @@ const Signup = () => {
     return (
         <>
             <section className=''>
-                <main className='flex justify-center mb-4 items-center	'>
+                <main className='flex justify-center mb-4 items-center text-2xl'>
                     <FaUser /> <h1 className='ml-2'> Sign Up </h1>
                 </main>
-                <p className='flex justify-center mb-4'>Create an account </p>
+                <p className='flex justify-center mb-4 text-xl'>Create an account </p>
             </section>
 
             <section>
                 <form onSubmit={onSubmit} className='text-black flex flex-col justify-center items-center'>
                     {/* this div is used to sytle inputs */}
-                    <div className=''>
+                    <div className='mb-4'>
                         <input
+                            className="rounded-md pl-1"
                             type='text'
                             name='name'
                             id='name'
@@ -85,8 +86,9 @@ const Signup = () => {
                             placeholder="Enter your name"
                             onChange={onChange} />
                     </div>
-                    <div>
+                    <div className='mb-4'>
                         <input
+                            className="rounded-md pl-1"
                             type='email'
                             name='email'
                             id='emal'
@@ -94,8 +96,9 @@ const Signup = () => {
                             placeholder="Enter your email"
                             onChange={onChange} />
                     </div>
-                    <div>
+                    <div className='mb-4'>
                         <input
+                            className="rounded-md pl-1"
                             type='password'
                             name='password'
                             id='password'
@@ -103,8 +106,9 @@ const Signup = () => {
                             placeholder="Enter your password"
                             onChange={onChange} />
                     </div>
-                    <div>
+                    <div className='mb-4'>
                         <input
+                            className="rounded-md pl-1"
                             type='password'
                             name='password2'
                             id='password2'
@@ -113,7 +117,7 @@ const Signup = () => {
                             onChange={onChange} />
                     </div>
                     <div>
-                        <button type='submit' className='rounded-full bg-[#E1F959] text-black' >Submit</button>
+                        <button type='submit' className='rounded-lg bg-[#E1F959] text-black px-4 hover:text-lg' >Submit</button>
                     </div>
                 </form>
             </section >

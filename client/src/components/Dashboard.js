@@ -38,15 +38,15 @@ const Dashboard = () => {
 
     return (
         <>
-            <section>
-                <h1>
+            <section className='text-center	'>
+                <h1 className='text-2xl mb-4'>
                     Welcome {user && user.name}
                 </h1>
-                <p>Vacation Posts Dashboard</p>
+                <p className='text-xl'>Post About Your Vacations!</p>
             </section>
             <PostForm />
 
-            <section>
+            <section >
                 {posts.length > 0 ? (
                     <div>
                         {posts.map((post) => (
