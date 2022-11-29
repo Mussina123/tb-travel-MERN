@@ -127,7 +127,7 @@ const PostForm = () => {
                     />
                 </div>
                 <div>
-                    <button type="submit" className='rounded-lg bg-[#E1F959] text-black px-4 hover:text-xl'>Post Experience</button>
+                    <button type="submit" className='rounded-lg bg-[#E1F959] text-black px-4 hover:text-lg'>Post Experience</button>
                 </div>
             </form>
         </section>

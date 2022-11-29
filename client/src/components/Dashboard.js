@@ -48,7 +48,7 @@ const Dashboard = () => {
 
             <section >
                 {posts.length > 0 ? (
-                    <div>
+                    <div className='md:grid md:grid-cols-3 md:gap-4 text-center'>
                         {posts.map((post) => (
                             <PostItem key={post._id} post={post} />
                         ))}
