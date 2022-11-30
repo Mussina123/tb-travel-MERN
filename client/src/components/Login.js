@@ -90,7 +90,7 @@ const Login = () => {
                     </div>
 
                     <div>
-                        <button type='submit' className='rounded-lg bg-[#E1F959] text-black px-4 hover:text-lg'  >Submit</button>
+                        <button type='submit' className='rounded-lg bg-[#E1F959] text-black px-4 hover:font-bold'  >Submit</button>
                     </div>
                 </form>
             </section>

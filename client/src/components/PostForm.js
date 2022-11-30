@@ -1,8 +1,7 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { createPost } from "../features/post/postSlice"
-import CloudinaryUploadWidget from "./Cloudinary"
-
+import CloudUpload from './CloudUpload'
 
 
 const PostForm = () => {
@@ -21,6 +20,7 @@ const PostForm = () => {
         review: '',
         comments: ''
     })
+    const [error, setError] = useState('')
 
     const dispatch = useDispatch()
 
@@ -46,8 +46,35 @@ const PostForm = () => {
     // setComments('')
 
 
+    function handleOnUpload(error, result, widget) {
+        if (error) {
+            setError(error);
+            widget.close({
+                quiet: true
+            });
+            return;
+        }
+        setPostData({ ...postData, urlOfImg: (result?.info?.secure_url) });
+    }
+
     return (
         <section className="text-center	m-4">
+            <div>
+                <CloudUpload onUpload={handleOnUpload}>
+                    {({ open }) => {
+                        function handleOnClick(e) {
+                            e.preventDefault();
+                            open();
+                        }
+                        return (
+                            <button onClick={handleOnClick}
+                                className='rounded-lg bg-[#E1F959] text-black px-4 hover:font-bold mb-4'>
+                                Upload an Image
+                            </button>
+                        )
+                    }}
+                </CloudUpload>
+            </div>
             <form onSubmit={onSubmit} >
                 <div className="mb-4">
                     <label
@@ -66,8 +93,9 @@ const PostForm = () => {
                 <div className="mb-4">
                     <label
                         className="mr-2"
-                        htmlFor="url">URL for Image</label>
+                        htmlFor="url">Image</label>
                     <input
+                        placeholder="Upload Image First!"
                         className="rounded-md"
                         type='text'
                         name='urlOfImg'
@@ -115,12 +143,14 @@ const PostForm = () => {
                         onChange={(e) => setPostData({ ...postData, review: e.target.value })}
                     />
                 </div>
-                <div className="mb-4">
+                <div className="mb-4 flex justify-center" >
                     <label
-                        className="mr-2"
+                        className="mr-2 self-center"
                         htmlFor="comments">Comments</label>
-                    <input
-                        className="rounded-md"
+                    <textarea
+                        rows={4}
+                        cols={30}
+                        className="rounded-md commentForm"
                         type='text'
                         name='comments'
                         id='comments'
@@ -129,14 +159,24 @@ const PostForm = () => {
                     />
                 </div>
                 <div>
-                    <button type="submit" className='rounded-lg bg-[#E1F959] text-black px-4 hover:text-lg'>Post Experience</button>
+                    <button type="submit" className='rounded-lg bg-[#E1F959] text-black px-4 hover:font-bold'>Post Experience</button>
                 </div>
             </form>
-            <div>
-
-                <CloudinaryUploadWidget />
-
-            </div>
+            {/* <div>
+                <CloudUpload onUpload={handleOnUpload}>
+                    {({ open }) => {
+                        function handleOnClick(e) {
+                            e.preventDefault();
+                            open();
+                        }
+                        return (
+                            <button onClick={handleOnClick}>
+                                Upload an Image
+                            </button>
+                        )
+                    }}
+                </CloudUpload>
+            </div> */}
         </section>
     )
 }

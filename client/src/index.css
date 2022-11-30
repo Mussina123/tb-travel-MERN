@@ -50,6 +50,20 @@ body {
   }
 }
 
-input {
+input, textarea {
   color: black;
+}
+
+/* img styling on dashboard */
+
+.urlImg {
+  height: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+} 
+
+textarea {
+  padding-left: .25rem;
+  padding-right: .25rem;
 }

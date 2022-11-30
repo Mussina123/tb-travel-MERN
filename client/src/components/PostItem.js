@@ -9,17 +9,21 @@ const PostItem = ({ post }) => {
     return (
 
         <div className='mt-10'>
-            {new Date(post.createdAt).toLocaleString('en-US')}
+            {/* {new Date(post.createdAt).toLocaleString('en-US')} */}
 
-            <h2>{post.location}</h2>
-            <h2>{post.urlOfImg}</h2>
-            <h2>{post.resortName}</h2>
-            <h2>{post.cost}</h2>
-            <h2>{post.review}</h2>
-            <h2>{post.comments}</h2>
+            <img
+                className='urlImg rounded-lg'
+                src={post.urlOfImg} />
+            <h2>Location: {post.location}</h2>
+            {/* <h2>{post.urlOfImg}</h2> */}
+            <h2>Resort Name: {post.resortName}</h2>
+            <h2>Cost: ${post.cost}</h2>
+            <h2>Review: {post.review}</h2>
+            <h2>Comments: {post.comments}</h2>
+            <h2>Posted on: {new Date(post.createdAt).toLocaleString('en-US')}</h2>
             <button
+                className='trashButton'
                 onClick={() => dispatch(deletePost(post._id))}
-                className=''
             ><FaRegTrashAlt /></button>
         </div>
     )
