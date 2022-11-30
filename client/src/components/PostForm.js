@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { createPost } from "../features/post/postSlice"
+import CloudinaryUploadWidget from "./Cloudinary"
+
 
 
 const PostForm = () => {
@@ -130,6 +132,11 @@ const PostForm = () => {
                     <button type="submit" className='rounded-lg bg-[#E1F959] text-black px-4 hover:text-lg'>Post Experience</button>
                 </div>
             </form>
+            <div>
+
+                <CloudinaryUploadWidget />
+
+            </div>
         </section>
     )
 }
