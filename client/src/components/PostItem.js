@@ -12,6 +12,7 @@ const PostItem = ({ post }) => {
             {/* {new Date(post.createdAt).toLocaleString('en-US')} */}
 
             <img
+                alt='Experience visited'
                 className='urlImg rounded-lg'
                 src={post.urlOfImg} />
             <h2>Location: {post.location}</h2>
