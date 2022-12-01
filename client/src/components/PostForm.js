@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { createPost } from "../features/post/postSlice"
-import CloudUpload from './cloud/CloudUpload'
+import CloudUpload from './CloudUpload'
 
 
 const PostForm = () => {
