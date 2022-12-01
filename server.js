@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 5000
 const userRoutes = require('./routes/userRoutes')
 const postRoutes = require('./routes/postRoutes')
 const { errorHandler } = require('./middleware/errorMiddleware')
+const path = require('path')
 
 
 require('dotenv').config({ path: './config/.env' });
@@ -23,6 +24,16 @@ app.use(logger('dev'))
 
 app.use('/users', userRoutes);
 app.use('/posts', postRoutes);
+
+// Serve front end for deployment 
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../client/build')))
+
+    app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, '../', 'client', 'build', 'index.html')))
+} else {
+    app.get('/', (req, res) => res.send('Please set to production'))
+}
 
 app.use(errorHandler)
 
