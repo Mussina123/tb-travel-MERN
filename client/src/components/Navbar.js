@@ -22,13 +22,13 @@ const Navbar = () => {
     return (
         <header className='flex justify-between header'>
             <Link to='/'>
-                <img src={mainLogo} className="h-36 ml-6" alt='main-logo'></img>
+                <img src={mainLogo} className="h-36 ml-2 md:ml-6" alt='main-logo'></img>
             </Link>
 
-            <ul className='flex items-center mr-20 justify-between	'>
+            <ul className='flex items-center md:mr-20 justify-between'>
                 {user ? (
                     <>
-                        <li className='mr-12 ml-4'>
+                        <li className='mr-6 ml-0'>
                             <Link to='dashboard'>
                                 <button className='flex items-center gap-2'>
                                     <IoLogoBuffer />
@@ -36,7 +36,7 @@ const Navbar = () => {
                                 </button>
                             </Link>
                         </li>
-                        <li className='mr-12 ml-2'>
+                        <li className='mr-6 ml-2'>
                             <button onClick={onLogout} className='flex items-center gap-2'>
                                 <FaSignOutAlt />
                                 Logout
