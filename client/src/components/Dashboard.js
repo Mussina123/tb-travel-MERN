@@ -53,7 +53,7 @@ const Dashboard = () => {
                             <PostItem key={post._id} post={post} />
                         ))}
                     </div>
-                ) : (<h3> You have not created any experiences </h3>)}
+                ) : (<h3 className='text-center'> You have not created any experiences </h3>)}
             </section>
 
         </>
