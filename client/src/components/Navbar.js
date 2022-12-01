@@ -28,7 +28,7 @@ const Navbar = () => {
             <ul className='flex items-center md:mr-20 justify-between'>
                 {user ? (
                     <>
-                        <li className='mr-4 ml-0 md:mr-8'>
+                        <li className='mr-6 ml-0 md:mr-8'>
                             <Link to='dashboard'>
                                 <button className='flex items-center gap-0'>
                                     <IoLogoBuffer />
@@ -36,7 +36,7 @@ const Navbar = () => {
                                 </button>
                             </Link>
                         </li>
-                        <li className='mr-6 ml-1 md:mr-0'>
+                        <li className='mr-7 ml-1 md:mr-0'>
                             <button onClick={onLogout} className='flex items-center gap-2'>
                                 <FaSignOutAlt />
                                 Logout
@@ -45,12 +45,12 @@ const Navbar = () => {
                     </>
                 ) : (
                     <>
-                        <li className='mr-4 md:mr-8'>
+                        <li className='mr-6 md:mr-8'>
                             <Link to='login'>
                                 <FaSignInAlt /> Login
                             </Link>
                         </li>
-                        <li className='mr-6 md:mr-0'>
+                        <li className='mr-7 md:mr-0'>
                             <Link to='Signup'>
                                 <FaUser /> Signup
                             </Link>
