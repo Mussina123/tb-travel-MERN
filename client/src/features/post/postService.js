@@ -30,6 +30,19 @@ const getPosts = async (token) => {
 
     return response.data
 }
+// Get All Posts 
+
+const getAllPosts = async (token) => {
+    // const config = {
+    //     headers: {
+    //         Authorization: `Bearer ${token}`
+    //     }
+    // }
+
+    const response = await axios.get(API_URL + 'allPosts')
+
+    return response.data
+}
 
 // Delete user post 
 
@@ -48,7 +61,8 @@ const deletePost = async (postId, token) => {
 const postService = {
     createPost,
     getPosts,
-    deletePost
+    deletePost,
+    getAllPosts
 }
 
 export default postService

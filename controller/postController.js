@@ -10,6 +10,14 @@ module.exports = {
             console.log(err)
         }
     },
+    getAllPosts: async (req, res) => {
+        try {
+            const allPosts = await Posts.find();
+            res.status(200).json(allPosts);
+        } catch (err) {
+            console.log(err)
+        }
+    },
     createPost: async (req, res) => {
         try {
             if (!req.body) {

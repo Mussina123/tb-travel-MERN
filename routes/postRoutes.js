@@ -6,6 +6,8 @@ const { protectAuth } = require('../middleware/authMiddleware')
 
 router.get('/', protectAuth, postController.getPosts);
 
+router.get('/allPosts', postController.getAllPosts);
+
 router.post('/createPost', protectAuth, postController.createPost);
 
 router.put('/updatePost/:id', protectAuth, postController.updatePost);

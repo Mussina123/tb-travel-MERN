@@ -1,14 +1,14 @@
 import React from 'react'
-import { deletePost } from '../features/post/postSlice'
-import { useDispatch, useSelector } from 'react-redux'
-import { FaRegTrashAlt } from 'react-icons/fa'
+// import { deletePost } from '../features/post/postSlice'
+// import { useDispatch } from 'react-redux'
+// import { FaRegTrashAlt } from 'react-icons/fa'
 
 
-const PostItem = ({ post }) => {
-    const dispatch = useDispatch()
+const PostItemFinalHome = ({ post }) => {
+    // const dispatch = useDispatch()
 
 
-    const { user } = useSelector((state) => state.auth)
+    // const { user } = useSelector((state) => state.auth)
 
     return (
 
@@ -27,15 +27,15 @@ const PostItem = ({ post }) => {
             <h2>Comments: {post.comments}</h2>
             <h2>Posted on: {new Date(post.createdAt).toLocaleString('en-US')}</h2>
 
-            {user ? (
+            {/* {user ? (
                 <button
                     className='trashButton'
                     onClick={() => dispatch(deletePost(post._id))}
                 ><FaRegTrashAlt /></button>
             ) : <span></span>
-            }
+            } */}
         </div>
     )
 }
 
-export default PostItem
+export default PostItemFinalHome
