@@ -154,6 +154,7 @@ const PostForm = () => {
                         type='text'
                         name='comments'
                         id='comments'
+                        placeholder="Please fill in all inputs before posting!"
                         value={postData.comments}
                         onChange={(e) => setPostData({ ...postData, comments: e.target.value })}
                     />
