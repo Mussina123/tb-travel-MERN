@@ -9,7 +9,7 @@ Users can sign up/login, make posts with pictures, and search others experiences
 
 </br>
 
-![My Image](Physical-therapy-cover.png)
+![My Image](GoTravel.png)
 
 
 ## How It's Made:
